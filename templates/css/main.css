@@ -1,0 +1,104 @@
+p {
+    color: red;
+    font-size: 1.2em;
+}
+
+#tip {
+    color: green;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.text {
+    color: blue;
+    /* text-decoration: underline; */
+}
+
+.baidu:link {
+    color: green;
+    text-decoration: none;
+}
+
+.baidu:visited {
+    color: blue;
+    /* text-decoration: overline; */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.baidu:focus {
+    color: yellow;
+}
+
+.baidu:hover {
+    color: red;
+    cursor: crosshair;
+}
+
+p:first-child {
+    border: 3px solid red;
+}
+
+
+
+#area::first-line {
+    text-decoration: underline;
+}
+
+#area::first-letter {
+    color: red;
+}
+
+html, body, p, div, #area, .text {
+    margin: 0;
+    padding: 0;
+}
+
+div > p > a {
+    background: green;
+}
+
+p.text {
+
+}
+
+p .text {
+
+}
+
+#area + p {
+    color: black;
+    font-family: 楷体;
+}
+
+
+.btn {
+    background: green;
+    /* border: 1px solid green; */
+    border-radius: 10px;
+    padding: 8px 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #00CC00;
+}
+
+
+.btn_red {
+    background: red;
+    /* border: 1px solid green; */
+    border-radius: 10px;
+    padding: 8px 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn_red:hover {
+    background: #CC0000;
+}
+
+ul {
+    list-style-type: circle;
+}

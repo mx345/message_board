@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+.nav {
+    list-style: none;
+}
+
+.nav > li {
+    float: left;
+   
+}
+.nav > li:last-child {
+    float: right;
+}
+
+.nav > li > a {
+    display: block;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-decoration: none;
+    border-right: 2px solid white;
+}
+
+.nav > li:first-child > a {
+    border-radius: 10px 0 0 10px;
+}
+
+.nav > li:last-child > a {
+    border-radius: 0 10px 10px 0;
+    border-right: none;
+}
+
+.nav > li > a:hover, .nav > li > a.selected {
+    background: red;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>欢迎使用留言板！</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            .message {
+                margin-top: 10px;
+                padding: 10px;
+                border-bottom: 1px dotted black;
+            }
+
+            .message:last-child {
+                border-bottom: none;
+            }
+
+            .uname {
+                color: red;
+            }
+
+            .pub_time {
+                margin-left: 50px;
+                color: blue;
+            }
+
+            .content {
+                margin-top: 10px;
+            }
+            #goout{
+                width:200px;
+               margin-left: auto
+            }
+
+        </style>
+        <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+    </head>
+    <body>
+        <div id="goout"><p>退出<a href="/user_center">留言板</a></p></div>
+        {% if session.get("user_info") %}
+        <div id="mb_form">
+            <form action="/message_board" method="POST">
+                <table>
+                    <tr><td>留言：</td><td><textarea id="content" name="content" placeholder="请输入留言内容"></textarea></td></tr>
+                    <tr><td></td><td><button type="submit">提交</button></td></tr>
+                </table>
+            </form>
+        </div>
+        {% else %}
+        <p>想留言？请<a href="/login">登录</a>！</p>
+        {% endif %}
+        <hr>
+        {% for m in messages %}
+        <div class="message">
+            <div><span class="uname">{{ m[0] }}</span><span class="pub_time">{{ m[1] }}</span></div>
+            <p class="content">{{ m[2] }}</p>
+            {% if session.get("user_info")["uname"]=="root" %}
+            <p><a href="/root">修改</a></p>
+            {%endif%}
+         
+        </div>
+        {% endfor %}
+
+       
+<style>
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+</style>
+
+
+
+<p>第{{x}}页<p>
+<ul class="pagination">
+  <li><a href="#">«</a></li>
+  <li><a href="/message_board">1</a></li>
+  <li><a class="active" href="/page2">2</a></li>
+  <li><a href="/page3">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">6</a></li>
+  <li><a href="#">7</a></li>
+  <li><a href="#">»</a></li>
+</ul>
+
+
+    </body>
+</html>

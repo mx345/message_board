@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>查看用户</title>
+</head>
+<body>
+    <div>
+        <p>所有的用户信息</p>
+    </div>
+    <hr>
+    {% for i in users%}
+    <div>
+        <span>{{i[0]}}</span> <span>{{i[1]}}</span> <span>{{i[2]}}</span> <span>{{i[3]}}</span> <span>{{i[4]}}</span>
+        <span>{{i[5]}}</span> <span>{{i[6]}}</span> <span>{{i[7]}}</span><span>{{i[8]}}</span>
+    </div>
+    {% endfor%}
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <script src="{{ url_for("static", filename="js/jquery-3.4.1.min.js") }}"></script>
+    <!-- <link rel="stylesheet" href="css/nav_bar.css" type="text/css"> -->
+    <script>
+     $(function()
+     {
+         $("#logout").click(function()
+         {
+            $.ajax({
+                    url:"/logout",
+                    success:function(date)
+                    {
+                        if (date["err"]===0)
+                        {
+                            alert("注销成功！");
+                            location.href ="/login";
+                        }
+                    }
+            })
+         });
+         
+     })
+    </script>
+   
+ <style>
+ .out{
+    margin-top: 80px;
+    margin-left: 510px;
+ }
+ * {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+.nav {
+    list-style: none;
+}
+
+.nav > li {
+    float: left;
+   
+}
+.nav > li:last-child {
+    float: right;
+}
+
+.nav > li > a {
+    display: block;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-decoration: none;
+    border-right: 2px solid white;
+}
+
+.nav > li:first-child > a {
+    border-radius: 10px 0 0 10px;
+}
+
+.nav > li:last-child > a {
+    border-radius: 0 10px 10px 0;
+    border-right: none;
+}
+
+.nav > li > a:hover, .nav > li > a.selected {
+    background: red;
+}
+
+ </style>
+
+
+</head>
+<body>
+    <div style="margin: 100px; background: black; border-radius: 10px;position: fixed;">
+        <ul class="nav">
+            <li><a href="/" class="selected">首页</a></li>
+            <li><a href="#">文章</a></li>
+            <li><a href="#">照片</a></li>
+            <li><a href="/message_board">留言板</a></li>
+            <li><a href="#">关于</a></li>
+        </ul>
+        <div style="clear:both;"></div>
+    </div>    
+        
+    <span style="font-size:30px;"> {{uname}}, 你好！</span>
+    <div class="out">    
+    <a id="logout" href="javascript:;">临时走开</a>
+
+    </div>
+      
+  
+      
+</body>
+</html>

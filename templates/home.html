@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>导航菜单</title>
+       
+        <style>
+            /* * {
+    margin: 0;
+    padding: 0;
+} */
+
+
+html {
+    font-size: 10px;
+}
+
+.nav {
+    list-style: none;
+    position: fixed;
+}
+
+.nav > li {
+    float: left;
+}
+
+.nav > li:last-child {
+    float: right;
+}
+
+.nav > li > a {
+    display: block;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-decoration: none;
+    border-right: 2px solid white;
+}
+
+.nav > li:first-child > a {
+    border-radius: 10px 0 0 10px;
+}
+
+.nav > li:last-child > a {
+    border-radius: 0 10px 10px 0;
+    border-right: none;
+}
+
+.nav > li > a:hover, .nav > li > a.selected {
+    background: red;
+
+}
+#regs{
+    
+
+    width:30;
+    background-color: tomato;
+    margin-left: 40;
+    margin-top: 100;
+    
+}
+#regs>a{
+    font-size: 15px; 
+}
+#logins{
+    margin-top: -20;
+    background-color: tomato;
+    width:30px;
+}
+
+#logins>a
+{
+    font-size: 15px;
+}
+        </style>
+    </head>
+    <body>
+        <div style="margin: 100px; background: gray; border-radius: 10px;">
+            <ul class="nav">
+                <li><a href="/" class="selected">首页</a></li>
+                <li><a href="#">文章</a></li>
+                <li><a href="#">照片</a></li>
+                <li><a href="/message_board">留言板</a></li>
+                <li><a href="/user_center">个人中心</a></li>
+                <li><a href="">关于</a></li>
+            </ul>
+            <div style="clear:both;"></div>
+        </div>
+
+        <div id="regs">
+        <a href="/reg">注册</a>
+        </div>
+        <div id="logins"><a href="/login">登录</a></div>
+        {% if session.get("user_info")["uname"]=="root" %}
+        <div style="background-color:tomato;width:60px;font-size: 15px;">
+            <p>删除<a style="color: black;" href="/delete">用户</a></p>
+        </div>
+
+        <div style="background-color:tomato;width:60px;font-size: 15px;">
+                <p>查看<a style="color: black;" href="/select_user">用户</a></p>
+        </div>
+
+      {%endif%}
+       </body>
+</html>

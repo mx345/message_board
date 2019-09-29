@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>修改界面</title>
+    <style>
+            div {
+                width: 500px;
+                margin: 50px auto;
+            }
+    </style>
+</head>
+<body>
+        <div id="mb_form">
+                <form action="/root" method="POST">
+                        <table>
+                        <tr><td>编号</td><td><input type="text" id="mid" name="mid" placeholder="请输入的要修改的编号"><span id="uname_tips"></span></td></tr>
+                        <tr><td>留言：</td><td><textarea id="content" name="content" placeholder="请输入留言内容"></textarea></td></tr>
+                        <tr><td></td><td><button type="submit">提交</button></td></tr>
+                    </table>
+                </form>
+            </div>
+</body>
+</html>
