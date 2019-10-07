@@ -79,6 +79,7 @@ def send_sms_code(phone):
     except:
         return False
 
+
 # send_sms_code("17371290626")
 @app.route("/reg", methods=["GET", "POST"])
 def reg_handle():
