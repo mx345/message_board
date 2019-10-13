@@ -84,7 +84,7 @@ def send_sms_code(phone):
 @app.route("/reg", methods=["GET", "POST"])
 def reg_handle():
     if request.method == "GET":
-        return render_template("reg.html")
+        return render_template("register.html")
     elif request.method == "POST":
         phone = request.form.get("phone")
         verify_code = request.form.get("verify_code")
@@ -134,8 +134,8 @@ def login_handle():
     if request.method=="GET":
         return render_template("login.html") 
     elif request.method == "POST":
-        uname = request.form.get("uname")
-        upass = request.form.get("upass")
+        uname = request.form.get("userName")
+        upass = request.form.get("passWord")
         
         if not (uname and uname.strip() and upass and upass.strip()):
             abort(Response("登录失败！"))
@@ -186,7 +186,6 @@ def check_uname():
     if not uname :
         abort(500)
   
-
     res = {"err":1,"desc":"用户名没有被注册！"}
     cur = db.cursor()
     cur.execute("select uid FROM mb_user where uname=%s",(uname,))
@@ -319,4 +318,4 @@ def page3():
     # return jsonify(result)
    
 if __name__ == "__main__":
-    app.run(port=80,debug=True)
+    app.run(port=81,debug=True)
